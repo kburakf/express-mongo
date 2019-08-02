@@ -14,7 +14,7 @@ module.exports.veriKaydet = (req, res) => {
     const show = new VeriIslemleri()
     show.get("https://jsonplaceholder.typicode.com/users")
         .then(data => {
-            for (let i = 0; i <= data.length; i++) {
+            for (let i = 0; i < data.length; i++) {
                 let kaydet = new GelenVeri({
                     id: data[i].id,
                     name: data[i].name,
@@ -32,6 +32,13 @@ module.exports.veriGoster = (req, res) => {
         res.render("yemekTarifleri", {
             kullanicilar: results
         })
-        res.json(kullanicilar)
     }).sort("id")
+}
+
+module.exports.photos = (req,res)=>{
+    const show = new VeriIslemleri()
+    show.get("https://jsonplaceholder.typicode.com/photos")
+    .then(data=>{
+        res.json(data)
+    })
 }

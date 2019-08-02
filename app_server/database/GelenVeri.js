@@ -2,11 +2,11 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const UserSchema = new Schema({
-    id:Number,
+    id: Number,
     name: String,
-    username:String,
-    email:String,
-    website:String
+    username: String,
+    email: String,
+    website: String
 }, {
     collection: "jsonKullanici"
 })

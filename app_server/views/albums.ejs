@@ -17,10 +17,8 @@
     <%for(var i=0;i<kullanicilar.length;i++){%>
         <tr>
         <th><%=kullanicilar[i].id%></th>
-        <th><%=kullanicilar[i].name%></th>
-        <th><%=kullanicilar[i].username%></th>
-        <th><%=kullanicilar[i].email%></th>
-        <th><%=kullanicilar[i].website%></th>
+        <th><%=kullanicilar[i].title%></th>
+        <th><%=kullanicilar[i].imgURL%></th>
         <th><a href="/login/kullanicisil/<%=kullanicilar[i].username%>">Sil</a></th>
         </tr>
     <%}%>   
