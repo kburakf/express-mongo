@@ -6,19 +6,17 @@
     <thead>
         <tr>
         <th>#</th>
-        <th>İsim</th>
-        <th>Kullanıcı Adı</th>
-        <th>E-mail</th>
-        <th>WebSite</th>
+        <th>ID</th>
+        <th>Title</th>
         </tr>
     
     <tbody>
 
     <%for(var i=0;i<kullanicilar.length;i++){%>
         <tr>
+        <th><img src="<%=kullanicilar[i].imgURL%>"></th>
         <th><%=kullanicilar[i].id%></th>
         <th><%=kullanicilar[i].title%></th>
-        <th><%=kullanicilar[i].imgURL%></th>
         <th><a href="/login/kullanicisil/<%=kullanicilar[i].username%>">Sil</a></th>
         </tr>
     <%}%>   

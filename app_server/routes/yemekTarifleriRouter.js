@@ -5,5 +5,7 @@ const control = require("../controller/tarifController")
 
 router.get("/",control.veriGoster)
 router.post("/",control.veriKaydet)
+router.post("/albums",control.photos)
+router.get("/albums",control.photosShow)
 
 module.exports = router

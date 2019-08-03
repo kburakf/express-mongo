@@ -1,5 +1,6 @@
 const iso = require("isomorphic-fetch")
 const GelenVeri = require("../database/GelenVeri")
+const Albums = require("../database/Albums")
 class VeriIslemleri {
 
     async get(url) {
@@ -36,9 +37,24 @@ module.exports.veriGoster = (req, res) => {
 }
 
 module.exports.photos = (req,res)=>{
-    const show = new VeriIslemleri()
-    show.get("https://jsonplaceholder.typicode.com/photos")
+    const showPhoto = new VeriIslemleri()
+    showPhoto.get("https://jsonplaceholder.typicode.com/photos")
     .then(data=>{
-        res.json(data)
+        for(let i=0;i<10;i++){
+            let kaydet = new Albums({
+                id:data[i].id,
+                title:data[i].title,
+                imgURL:data[i].thumbnailUrl
+            })
+            let promise = kaydet.save()
+        }
     })
+}
+
+module.exports.photosShow = (req, res) => {
+    Albums.find((err, photos) => {
+        res.render("albums", {
+            kullanicilar: photos
+        })
+    }).sort("id")
 }
