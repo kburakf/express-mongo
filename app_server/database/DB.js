@@ -1,6 +1,10 @@
 const mongoose = require("mongoose")
+const express = require("express")
+const app = express()
 mongoose.Promise = require("bluebird")
-
+const session = require("express-session")
+const MongoStore = require("connect-mongo")(session)
+const cookieParser = require("cookie-parser")
 const mongoDB = "mongodb://localhost/RandomMeal"
 
 mongoose.connect(mongoDB, {
