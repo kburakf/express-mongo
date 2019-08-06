@@ -58,22 +58,14 @@ module.exports.photosShow = (req, res) => {
         })
     }).sort("id")
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 737a0be661888c73f3820cd6bbff482d9080b3f2
 module.exports.delUser = (req, res) => {
 
-    Users.findOneAndRemove({
+    Albums.findOneAndRemove({
         id: req.params.id
     }, err => {
         if (err)
             console.log(err)
         else
-<<<<<<< HEAD
             res.redirect("/yemektarifleri/albums")
-=======
-            res.redirect("/login/albums")
->>>>>>> 737a0be661888c73f3820cd6bbff482d9080b3f2
     })
 }

@@ -7,6 +7,6 @@ router.get("/",control.veriGoster)
 router.post("/",control.veriKaydet)
 router.post("/albums",control.photos)
 router.get("/albums",control.photosShow)
-router.get("/albums/:id",control.delUser)
+router.get("/albumsdelete/:id",control.delUser)
 
 module.exports = router
