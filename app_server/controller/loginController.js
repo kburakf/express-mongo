@@ -3,14 +3,6 @@ const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const express = require("express")
 const cookieParser = require("cookie-parser")
-const app = express()
-const mongoose = require("mongoose")
-const session = require("express-session")
-const MongoStore = require("connect-mongo")(session)
-
-
-require("dotenv").config()
-
 
 module.exports.loginGet = (req, res) => {
     res.render("login")
@@ -46,18 +38,8 @@ module.exports.authPost = (req, res) => {
                         const token = jwt.sign(payload, req.app.get("api_secret_key"), {
                             expiresIn: 720
                         })
-                        const db = mongoose.connection
-
-                        app.use(cookieParser())
-                        app.use(session({
-                            secret: 'my-secret',
-                            resave: false,
-                            saveUninitialized: true,
-                            store: new MongoStore({
-                                mongooseConnection: db
-                            })
-                        }))
-                        res.redirect("/login/kullanicilarListesi")
+                        
+                        res.redirect("/login/chat")
                     }
                 })
         }
@@ -83,3 +65,4 @@ module.exports.delUser = (req, res) => {
             res.redirect("/login/kullanicilarListesi")
     })
 }
+
