@@ -3,73 +3,41 @@ module.exports.getChat = (req, res) => {
 }
 
 module.exports.postChat = (req, res) => {
+    const express = require('express')
+    const app = express()
 
-    const Chat = require("../database/Chat")
+    //Listen on port 3000
+    server = app.listen(3000)
 
-    const mongo = require('mongodb').MongoClient;
-    const client = require('socket.io').listen(4000).sockets
+    //socket.io instantiation
+    const io = require("socket.io")(server)
 
-    // Connect to mongo
-    mongo.connect('mongodb://127.0.0.1/mongochat', (err, db) => {
-        if (err)
-            throw err
+    //listen on every connection
+    io.on('connection', (socket) => {
+        console.log('New user connected')
 
-        console.log('MongoDB connected...')
+        //default username
+        socket.username = "Anonymous"
 
-        // Connect to Socket.io
-        client.on('connection', socket => {
-            let chat = db.collection('chats')
+        //listen on change_username
+        socket.on('change_username', (data) => {
+            socket.username = data.username
+        })
 
-            // Create function to send status
-            sendStatus = s => socket.emit('status', s)
-
-
-            // Get chats from mongo collection
-            Chat.find().limit(100).sort({
-                _id: 1
-            }).toArray((err, res) => {
-                if (err)
-                    throw err
-
-                // Emit the messages
-                socket.emit('output', res)
+        //listen on new_message
+        socket.on('new_message', (data) => {
+            //broadcast the new message
+            io.sockets.emit('new_message', {
+                message: data.message,
+                username: socket.username
             });
+        })
 
-            // Handle input events
-            socket.on('input', data => {
-                let name = data.name
-                let message = data.message
-
-                // Check for name and message
-                if (name == '' || message == '') {
-                    // Send error status
-                    sendStatus('Please enter a name and message')
-                } else {
-                    // Insert message
-                    Chat.insert({
-                        name,
-                        message
-                    }, () => {
-                        client.emit('output', [data])
-
-                        // Send status object
-                        sendStatus({
-                            message: 'Message sent',
-                            clear: true
-                        })
-                    })
-                }
+        //listen on typing
+        socket.on('typing', (data) => {
+            socket.broadcast.emit('typing', {
+                username: socket.username
             })
-
-            // Handle clear
-            socket.on('clear', data => {
-                // Remove all chats from collection
-                Chat.remove({}, () => {
-                    // Emit cleared
-                    socket.emit('cleared')
-                })
-            })
-
         })
     })
 }
