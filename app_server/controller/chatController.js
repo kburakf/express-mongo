@@ -3,14 +3,10 @@ module.exports.getChat = (req, res) => {
 }
 
 module.exports.postChat = (req, res) => {
-    const express = require('express')
-    const app = express()
-
-    //Listen on port 3000
-    server = app.listen(3000)
-
-    //socket.io instantiation
-    const io = require("socket.io")(server)
+    const socketio = require("socket.io")
+    const io = socketio()
+    const socketApi = {}
+    socketApi.io = io
 
     //listen on every connection
     io.on('connection', (socket) => {
