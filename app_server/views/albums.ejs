@@ -14,10 +14,10 @@
 
     <%for(var i=0;i<kullanicilar.length;i++){%>
         <tr>
-        <th><img src="<%=kullanicilar[i].imgURL%>"></th>
+        <th><img style="width: 30px; height: 30px;" src="<%=kullanicilar[i].imgURL%>"></th>
         <th><%=kullanicilar[i].id%></th>
         <th><%=kullanicilar[i].title%></th>
-        <th><a href="/yemektarifleri/albumsdelete/<%=kullanicilar[i].id%>">Sil</a></th>
+        <th><a href="/jsonKullanicilari/albumsdelete/<%=kullanicilar[i].id%>">Sil</a></th>
         </tr>
     <%}%>   
 

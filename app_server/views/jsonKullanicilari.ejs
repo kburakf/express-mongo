@@ -11,9 +11,7 @@
         <th>E-mail</th>
         <th>WebSite</th>
         </tr>
-    
     <tbody>
-
     <%for(var i=0;i<kullanicilar.length;i++){%>
         <tr>
         <th><%=kullanicilar[i].id%></th>
@@ -23,11 +21,12 @@
         <th><%=kullanicilar[i].website%></th>
         <th><a href="/login/kullanicisil/<%=kullanicilar[i].username%>">Sil</a></th>
         </tr>
-    <%}%>   
-
-    <thead>
-
+    <%}%>    
+    <thead>        
     </tbody>
-    </thead>
+</thead>
 </table>
+<a href="/jsonKullanicilari/albums">
+<button  style="float: right;" class="btn btn-primary">Fotoğraflar İçin Tıkla</button>
+</a>
 </div>

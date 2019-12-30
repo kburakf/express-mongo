@@ -28,7 +28,7 @@ module.exports.veriKaydet = (req, res) => {
 
 module.exports.veriGoster = (req, res) => {
   GelenVeri.find((err, results) => {
-    res.render("yemekTarifleri", {
+    res.render("jsonKullanicilari", {
       kullanicilar: results
     });
   }).sort("id");
@@ -62,7 +62,7 @@ module.exports.delUser = (req, res) => {
     },
     err => {
       if (err) console.log(err);
-      else res.redirect("/yemektarifleri/albums");
+      else res.redirect("/jsonKullanicilari/albums");
     }
   );
 };

@@ -1,35 +1,37 @@
 <html>
+
 <head>
 
-<link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
 
 </head>
+
 <body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">NodeJS</a>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">NodeJS</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Kayıt Ol</a></li>
+        <li style="display:show;" id="login"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Giriş
+            Yap</a></li>
+        <li><a href="/products"><span class="glyphicon glyphicon-shopping-cart"></span> Ürünler</a>
+        <li style="display:none;" id="logout"><a href="/login/logout"><span class="glyphicon glyphicon-log-in"></span>
+            Çıkış Yap</a></li>
+        <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Kayıtlı Kullanıcılar</a></li>
+        <li><a href="/jsonKullanicilari"><span class="glyphicon glyphicon-globe"></span> JSON Kullanıcıları</a></li>
+        </li>
+      </ul>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="/">Home</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Kayıt Ol</a></li>
-      <li style="display:show;" id="login"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Giriş Yap</a></li>
-      <li style="display:none;" id="logout"><a href="/login/logout"><span class="glyphicon glyphicon-log-in"></span> Çıkış Yap</a></li>
-      <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Kayıtlı Kullanıcılar</a></li>
-      <li><a href="/yemekTarifleri"><span class="glyphicon glyphicon-user"></span> JSON Kullanıcıları</a></li>
-      
-    </ul>
-  </div>
-</nav>
-
-    <%- body%>
-
-    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  </nav>
+  <%- body%>
+  <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,6 @@
-// YEMEK TARİFLERİ KONTROL
 const express = require("express");
 const router = express.Router();
-const control = require("../controller/tarifController");
+const control = require("../controller/jsonController");
 
 router.get("/", control.veriGoster);
 router.post("/", control.veriKaydet);

@@ -1,27 +1,19 @@
-    <div class="container">
-        <div class="row">
-
+<div class="container">
+    <div class="row">
         <div id="logreg-forms">
             <form action="/login" method="POST">
-                <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign In</h1>
-            
-                <input name="username" type="text" id="username" class="form-control" placeholder="kullanıcı adı" required="" autofocus="">
-                <input name="password" type="password" id="password" class="form-control" placeholder="şifre" required="">
-                
-            <input type="submit" class="btn btn-primary" value="Giriş">
-            <a href="/login/signup" type="submit" class="btn btn-success">Kayıt Ol</a>
-                <hr>   
-            </form>
-            <div class="panel-footer clearfix">
-                <div>
-                    <%if(typeof username!="undefined"){%>
-                        <h2>Hoşgeldiniz: <%=username%></h2>
-                    <%}%>
-                    
-                </div>
-            </div>
-                
-        </div>
+                <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">
+                    Sign In
+                </h1>
 
+                <input name="username" type="text" id="username" class="form-control" placeholder="kullanıcı adı"
+                    required="" autofocus="" />
+                <input name="password" type="password" id="password" class="form-control" placeholder="şifre"
+                    required="" />
+                <input type="submit" class="btn btn-primary" value="Giriş" />
+                <a href="/login/signup" type="submit" class="btn btn-success">Kayıt Ol</a>
+                <hr />
+            </form>
         </div>
     </div>
+</div>Ï

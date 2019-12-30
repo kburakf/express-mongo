@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <form action="/products/addProduct" method="POST">
+      <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Ürün Ekle</h1>
+      <table align="center">
+        <tbody align="center">
+          <tr>
+            <td>
+              <label>Ürünün Adı</label><input name="productName" type="text" class="form-control form-control-sm"
+                required="" autofocus=""></td>
+          </tr>
+          <tr>
+            <td><label>Ürünün Fiyatı</label>
+              <input name="price" type="text" class="form-control form-control-sm" required=""></td>
+          </tr>
+          <tr>
+            <td>
+              <label>Fotoğraf URL</label>
+              <input name="pic" type="text" class="form-control" required=""></td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="form-group">
+                <label for="comment">Açıklaması:</label>
+                <textarea class="form-control" rows="5" name="description"></textarea>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <hr>
+            <td>
+              <input type="submit" class="btn btn-success" value="Kaydet">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      </tbody>
+    </form>
+  </div>
+</div>

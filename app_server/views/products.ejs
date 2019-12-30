@@ -1,0 +1,33 @@
+<h1>Ürünler</h1>
+<hr>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Markalar</th>
+                <th>Fiyatı</th>
+                <th>Özellikleri</th>
+                <th>Fotoğrafı</th>
+            </tr>
+        <tbody>
+
+            <%for(var i=0;i<products.length;i++){%>
+            <tr>
+                <th><label>Markası: </label>
+                    <%=products[i].productName%></th>
+                <th><label>Fiyatı: </label>
+                    <%=products[i].price%></th>
+                <th><label>Özellikleri: </label>
+                    <%=products[i].description%></th>
+                <th><img style="width: 110px; height: 130px;" src="<%=products[i].pic%>"></th>
+                <th><input type="submit">Sepete Ekle</input></th>
+            </tr>
+            <%}%>   
+
+    <thead>
+
+    </tbody>
+    </thead>
+</table>
+</div>

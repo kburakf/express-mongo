@@ -8,10 +8,12 @@ module.exports.loginGet = (req, res) => {
   res.render("login");
 };
 module.exports.authPost = (req, res) => {
-  const { username, password } = req.body;
+  const {
+    username,
+    password
+  } = req.body;
 
-  Users.findOne(
-    {
+  Users.findOne({
       username
     },
     (err, user) => {
@@ -35,8 +37,8 @@ module.exports.authPost = (req, res) => {
             const token = jwt.sign(payload, req.app.get("api_secret_key"), {
               expiresIn: 720
             });
-
-            res.redirect("/login/kullanicilarListesi");
+            if (user.username === "admin")
+              res.redirect("/products/addProduct");
           }
         });
       }
@@ -53,8 +55,7 @@ module.exports.usersList = (req, res) => {
 };
 
 module.exports.delUser = (req, res) => {
-  Users.findOneAndRemove(
-    {
+  Users.findOneAndRemove({
       username: req.params.username
     },
     err => {
