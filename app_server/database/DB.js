@@ -12,7 +12,7 @@ mongoose.connect(mongoDB, {
     useCreateIndex: true
 }, err => {
     if (err)
-        console.log("MongoDB'ye bağlanamadık kanka..")
+        console.log("MongoDB'ye bağlanamadık kanka...")
     else
         console.log("MongoDB'ye bağlandık olm !")
 })

@@ -18,7 +18,6 @@ module.exports.signupPost = (req, res) => {
     } = req.body
 
     bcrypt.hash(password, 10)
-
         .then(hash => {
             const user = new Users({
                 ...obje,

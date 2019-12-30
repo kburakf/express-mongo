@@ -1,3 +1,3 @@
 module.exports.homeGet = (req, res) => {
-    res.render("home")
-}
+  res.render("home");
+};
